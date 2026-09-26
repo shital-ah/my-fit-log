@@ -76,6 +76,7 @@ export function FitLogProvider({ children }) {
                 removeFromPlan,
                 saveWorkout,
                 removeSaved,
+                showToast,
             }}
         >
             {children}

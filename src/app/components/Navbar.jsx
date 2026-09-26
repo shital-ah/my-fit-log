@@ -1,10 +1,12 @@
 "use client";
 
 import Link from "next/link";
+import { useState } from "react";
 import { useFitLog } from "../../context/FitLogContext";
 
 export default function Navbar() {
   const { plan, saved } = useFitLog();
+  const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <header className="sticky top-0 z-50 border-b border-[#262a2e] bg-[#0b0d0f]/95 backdrop-blur">
@@ -12,10 +14,11 @@ export default function Navbar() {
 
         {/* Mobile Menu Button */}
         <button
+          onClick={() => setMenuOpen(!menuOpen)}
           className="text-2xl text-white md:hidden"
-          aria-label="Open menu"
+          aria-label="Toggle menu"
         >
-          ☰
+          {menuOpen ? "✕" : "☰"}
         </button>
 
         {/* Logo */}
@@ -62,8 +65,30 @@ export default function Navbar() {
             Saved <span className="ml-1">{saved.length}</span>
           </Link>
         </div>
-
       </nav>
+
+      {/* Mobile Menu */}
+      {menuOpen && (
+        <div className="border-t border-[#262a2e] bg-[#0b0d0f] px-5 py-5 md:hidden">
+          <div className="flex flex-col gap-4">
+            <Link
+              href="/"
+              onClick={() => setMenuOpen(false)}
+              className="text-sm font-bold uppercase tracking-wider text-[#ccff00]"
+            >
+              Workout
+            </Link>
+
+            <Link
+              href="/my-plan"
+              onClick={() => setMenuOpen(false)}
+              className="text-sm font-bold uppercase tracking-wider text-gray-400"
+            >
+              My Plan
+            </Link>
+          </div>
+        </div>
+      )}
     </header>
   );
 }
