@@ -3,6 +3,7 @@ import "./globals.css";
 import { FitLogProvider } from "../context/FitLogContext";
 import Toast from "./components/Toast";
 import ToastProvider from "./components/ToastProvider";
+import Footer from "./components/Footer";
 
 
 const geistSans = Geist({
@@ -30,6 +31,7 @@ export default function RootLayout({ children }) {
         <FitLogProvider>
           {children}
           <ToastProvider />
+          <Footer></Footer>
         </FitLogProvider>
       </body>
     </html>
