@@ -1,6 +1,9 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { FitLogProvider } from "../context/FitLogContext";
+import Toast from "./components/Toast";
+import ToastProvider from "./components/ToastProvider";
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -24,8 +27,11 @@ export default function RootLayout({ children }) {
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <FitLogProvider>{children}</FitLogProvider>
+        <FitLogProvider>
+          {children}
+          <ToastProvider />
+        </FitLogProvider>
       </body>
     </html>
   );
-}
+} 
