@@ -1,4 +1,4 @@
-import Navbar from "./components/Navbar";
+
 import Hero from "./components/Hero";
 import WorkoutCard from "./components/WorkoutCard";
 import { getWorkouts } from "../lib/api";
@@ -8,7 +8,7 @@ export default async function Home() {
 
   return (
     <main className="min-h-screen bg-[#0b0d0f] text-white">
-      <Navbar />
+
 
       <Hero />
 

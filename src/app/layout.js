@@ -4,6 +4,7 @@ import { FitLogProvider } from "../context/FitLogContext";
 import Toast from "./components/Toast";
 import ToastProvider from "./components/ToastProvider";
 import Footer from "./components/Footer";
+import Navbar from "./components/Navbar";
 
 
 const geistSans = Geist({
@@ -29,10 +30,12 @@ export default function RootLayout({ children }) {
     >
       <body className="min-h-full flex flex-col">
         <FitLogProvider>
+          <Navbar></Navbar>
           {children}
           <ToastProvider />
           <Footer></Footer>
         </FitLogProvider>
+
       </body>
     </html>
   );
